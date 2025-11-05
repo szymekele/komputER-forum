@@ -49,6 +49,7 @@
             this.publish_button.TabIndex = 1;
             this.publish_button.Text = "Opublikuj";
             this.publish_button.UseVisualStyleBackColor = true;
+            this.publish_button.Click += new System.EventHandler(this.publish_button_Click_1);
             // 
             // cancel_button
             // 
@@ -58,6 +59,7 @@
             this.cancel_button.TabIndex = 2;
             this.cancel_button.Text = "Anuluj";
             this.cancel_button.UseVisualStyleBackColor = true;
+            this.cancel_button.Click += new System.EventHandler(this.cancel_button_Click);
             // 
             // CreateComment
             // 

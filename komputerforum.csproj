@@ -300,6 +300,12 @@
     <Compile Include="register.Designer.cs">
       <DependentUpon>register.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserComment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserComment.Designer.cs">
+      <DependentUpon>UserComment.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserPost.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -333,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="register.resx">
       <DependentUpon>register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserComment.resx">
+      <DependentUpon>UserComment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserPost.resx">
       <DependentUpon>UserPost.cs</DependentUpon>

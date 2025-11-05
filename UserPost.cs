@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace komputerforum
 {
@@ -26,20 +28,68 @@ namespace komputerforum
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(97)))), ((int)(((byte)(97))))); ;
         }
 
-        public void SetPostData(string title, string content, string username, DateTime createdAt)
+        public void SetPostData(string title, string content, string username, DateTime createdAt, int postId, int currentUserId)
         {
             l_title.Text = title;
             l_content.Text = content;
             l_author.Text = $"Autor: {username}";
             l_date.Text = createdAt.ToString("yyyy-MM-dd HH:mm");
 
+            _postId = postId;
+            _currentUserId = currentUserId;
+
             Button commentButton = new Button();
             commentButton.Text = "💬 Komentuj";
-            commentButton.Margin = new Padding(0);
+            commentButton.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
+            commentButton.AutoSize = true;
             commentButton.Location = new Point(10, l_content.Bottom + 10);
             commentButton.Click += CommentButton_Click;
             this.Controls.Add(commentButton);
+
+            if (GetPostAuthorId() == _currentUserId) // sprawdź, czy ten post należy do zalogowanego użytkownika
+            {
+                Button editButton = new Button();
+                editButton.Text = "✏️ Edytuj";
+                editButton.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
+                editButton.AutoSize = true;
+                editButton.Location = new Point(120, l_content.Bottom + 10);
+                editButton.Click += EditButton_Click;
+                this.Controls.Add(editButton);
+            }
         }
+
+        private int GetPostAuthorId()
+        {
+            int authorId = -1;
+            string cs = ConfigurationManager.ConnectionStrings["komputerforum.Properties.Settings.kforumDBConnectionString"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(cs))
+            {
+                conn.Open();
+                string query = "SELECT UserId FROM posts WHERE Id = @postId";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@postId", _postId);
+                    object result = cmd.ExecuteScalar();
+                    if (result != null)
+                        authorId = Convert.ToInt32(result);
+                }
+            }
+            return authorId;
+        }
+
+        private void EditButton_Click(object sender, EventArgs e)
+        {
+            // Otwórz CreatePost w trybie edycji
+            CreatePost editForm = new CreatePost(_currentUserId, _postId, true);
+
+            if (editForm.ShowDialog() == DialogResult.OK)
+            {
+                // Odśwież listę po edycji
+                ((main)Application.OpenForms["main"]).RefreshList();
+            }
+        }
+
+
 
         private void CommentButton_Click(object sender, EventArgs e)
         {
@@ -48,8 +98,12 @@ namespace komputerforum
             if (commentForm.ShowDialog() == DialogResult.OK)
             {
                 // Po pomyślnym dodaniu komentarza
-                MessageBox.Show("Komentarz dodany!");
+                //MessageBox.Show("Komentarz dodany!");
                 // Możesz tu odświeżyć komentarze (LoadComments()) jeśli je wczytujesz
+                if (Application.OpenForms["main"] is main mainForm)
+                {
+                    mainForm.RefreshList();
+                }
             }
         }
 
