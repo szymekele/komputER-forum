@@ -15,6 +15,8 @@ namespace komputerforum
         public CreateComment(int postId, int userId, int commentId = 0, bool isEditMode = false)
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             _postId = postId;
             _userId = userId;
             _commentId = commentId;

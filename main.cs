@@ -19,6 +19,14 @@ namespace komputerforum
         public main()
         {
             InitializeComponent();
+            //this.Size = new Size(1280, 960);
+            //this.MaximumSize = this.Size;
+            //this.MinimumSize = this.Size;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            //postsPanel.WrapContents = false;
+            //postsPanel.FlowDirection = FlowDirection.TopDown;
+
         }
 
         public main(int userId) : this()
@@ -29,6 +37,41 @@ namespace komputerforum
         }
 
 
+        //private void new_post_button_Click(object sender, EventArgs e)
+        //{
+        //    if (_currentUserId <= 0)
+        //    {
+        //        MessageBox.Show("Brak zalogowanego użytkownika. Zaloguj się ponownie.");
+        //        return;
+        //    }
+
+        //    CreatePost createNewPost = new CreatePost(_currentUserId);
+
+        //    if (createNewPost.ShowDialog() == DialogResult.OK)
+        //    {
+        //        // Po dodaniu posta do bazy pobierz jego ID (ostatnio utworzony)
+        //        int newPostId = GetLastInsertedPostId(_currentUserId, createNewPost.CreatedTitle);
+
+        //        UserPost postItem = new UserPost();
+        //        postItem.SetPostData(
+        //            createNewPost.CreatedTitle,
+        //            createNewPost.CreatedContent,
+        //            GetUsernameById(_currentUserId),
+        //            createNewPost.CreatedAt,
+        //            newPostId,          // ← przekazujemy ID nowego posta
+        //            _currentUserId      // ← i ID zalogowanego użytkownika
+        //        );
+
+        //        postsPanel.Controls.Add(postItem);
+        //        postsPanel.Controls.SetChildIndex(postItem, 0); // dodaje na górę listy
+
+        //        ArchiveOldPosts();
+        //        LoadPosts();
+        //    }
+
+        //    LoadPosts();
+        //}
+
         private void new_post_button_Click(object sender, EventArgs e)
         {
             if (_currentUserId <= 0)
@@ -37,11 +80,10 @@ namespace komputerforum
                 return;
             }
 
-            CreatePost createNewPost = new CreatePost(_currentUserId);
+            var createNewPost = new CreatePost(CreatePost.EditorMode.CreatePost, _currentUserId);
 
             if (createNewPost.ShowDialog() == DialogResult.OK)
             {
-                // Po dodaniu posta do bazy pobierz jego ID (ostatnio utworzony)
                 int newPostId = GetLastInsertedPostId(_currentUserId, createNewPost.CreatedTitle);
 
                 UserPost postItem = new UserPost();
@@ -50,12 +92,12 @@ namespace komputerforum
                     createNewPost.CreatedContent,
                     GetUsernameById(_currentUserId),
                     createNewPost.CreatedAt,
-                    newPostId,          // ← przekazujemy ID nowego posta
-                    _currentUserId      // ← i ID zalogowanego użytkownika
+                    newPostId,
+                    _currentUserId
                 );
 
                 postsPanel.Controls.Add(postItem);
-                postsPanel.Controls.SetChildIndex(postItem, 0); // dodaje na górę listy
+                postsPanel.Controls.SetChildIndex(postItem, 0);
 
                 ArchiveOldPosts();
                 LoadPosts();
@@ -63,6 +105,7 @@ namespace komputerforum
 
             LoadPosts();
         }
+
 
         private int GetLastInsertedPostId(int userId, string title)
         {

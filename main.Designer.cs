@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main));
             this.logged_in = new System.Windows.Forms.Label();
             this.new_post_button = new System.Windows.Forms.Button();
             this.logout_button = new System.Windows.Forms.Button();
             this.postsPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.l_users_name = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // logged_in
@@ -56,7 +57,7 @@
             this.new_post_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(210)))), ((int)(((byte)(151)))));
             this.new_post_button.Font = new System.Drawing.Font("Yu Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.new_post_button.ForeColor = System.Drawing.Color.White;
-            this.new_post_button.Location = new System.Drawing.Point(1055, 24);
+            this.new_post_button.Location = new System.Drawing.Point(12, 184);
             this.new_post_button.Name = "new_post_button";
             this.new_post_button.Size = new System.Drawing.Size(163, 50);
             this.new_post_button.TabIndex = 2;
@@ -69,9 +70,9 @@
             this.logout_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(210)))), ((int)(((byte)(151)))));
             this.logout_button.Font = new System.Drawing.Font("Yu Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.logout_button.ForeColor = System.Drawing.Color.White;
-            this.logout_button.Location = new System.Drawing.Point(1252, 24);
+            this.logout_button.Location = new System.Drawing.Point(755, 18);
             this.logout_button.Name = "logout_button";
-            this.logout_button.Size = new System.Drawing.Size(97, 50);
+            this.logout_button.Size = new System.Drawing.Size(129, 54);
             this.logout_button.TabIndex = 3;
             this.logout_button.Text = "Wyloguj";
             this.logout_button.UseVisualStyleBackColor = false;
@@ -81,13 +82,49 @@
             // 
             this.postsPanel.AutoScroll = true;
             this.postsPanel.BackColor = System.Drawing.Color.Transparent;
+            this.postsPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.postsPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.postsPanel.Location = new System.Drawing.Point(12, 95);
+            this.postsPanel.Location = new System.Drawing.Point(12, 240);
             this.postsPanel.Name = "postsPanel";
-            this.postsPanel.Size = new System.Drawing.Size(960, 454);
+            this.postsPanel.Padding = new System.Windows.Forms.Padding(8);
+            this.postsPanel.Size = new System.Drawing.Size(877, 632);
             this.postsPanel.TabIndex = 4;
             this.postsPanel.WrapContents = false;
             this.postsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.postsPanel_Paint);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(12, 75);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(170, 29);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Zalogowano:";
+            // 
+            // l_users_name
+            // 
+            this.l_users_name.AutoSize = true;
+            this.l_users_name.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.l_users_name.ForeColor = System.Drawing.SystemColors.Control;
+            this.l_users_name.Location = new System.Drawing.Point(188, 75);
+            this.l_users_name.Name = "l_users_name";
+            this.l_users_name.Size = new System.Drawing.Size(95, 29);
+            this.l_users_name.TabIndex = 6;
+            this.l_users_name.Text = "label2";
+            this.l_users_name.Click += new System.EventHandler(this.l_users_name_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::komputerforum.Properties.Resources.logo;
+            this.pictureBox2.Location = new System.Drawing.Point(755, 169);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(134, 65);
+            this.pictureBox2.TabIndex = 7;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pictureBox1
             // 
@@ -99,40 +136,12 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(364, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 25);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Zalogowano:";
-            // 
-            // l_users_name
-            // 
-            this.l_users_name.AutoSize = true;
-            this.l_users_name.Location = new System.Drawing.Point(530, 34);
-            this.l_users_name.Name = "l_users_name";
-            this.l_users_name.Size = new System.Drawing.Size(73, 25);
-            this.l_users_name.TabIndex = 6;
-            this.l_users_name.Text = "label2";
-            this.l_users_name.Click += new System.EventHandler(this.l_users_name_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(921, 24);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox2.TabIndex = 7;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(39)))), ((int)(((byte)(41)))));
-            this.ClientSize = new System.Drawing.Size(1371, 561);
+            this.ClientSize = new System.Drawing.Size(901, 877);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.l_users_name);
             this.Controls.Add(this.label1);
@@ -142,12 +151,13 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.logged_in);
             this.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "komputER forum";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

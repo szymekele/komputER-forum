@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(home));
             this.authors = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,7 +45,7 @@
             this.authors.Location = new System.Drawing.Point(14, 520);
             this.authors.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.authors.Name = "authors";
-            this.authors.Size = new System.Drawing.Size(283, 32);
+            this.authors.Size = new System.Drawing.Size(441, 50);
             this.authors.TabIndex = 0;
             this.authors.Text = "komputerforum@gmail.com\r\nAutorzy: Szymon Elendt, Wiktor Rogowski\r\n";
             // 
@@ -55,7 +56,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(315, 90);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(369, 45);
+            this.label1.Size = new System.Drawing.Size(559, 67);
             this.label1.TabIndex = 2;
             this.label1.Text = "komputER forum";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -67,7 +68,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(210)))), ((int)(((byte)(151)))));
             this.label2.Location = new System.Drawing.Point(244, 148);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(501, 32);
+            this.label2.Size = new System.Drawing.Size(767, 49);
             this.label2.TabIndex = 3;
             this.label2.Text = "forum technologiczno-komputerowe";
             // 
@@ -78,7 +79,7 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(97)))), ((int)(((byte)(97)))));
             this.label3.Location = new System.Drawing.Point(192, 232);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(595, 32);
+            this.label3.Size = new System.Drawing.Size(899, 49);
             this.label3.TabIndex = 4;
             this.label3.Text = "ZALOGUJ SIĘ LUB UTWÓRZ NOWE KONTO";
             // 
@@ -123,10 +124,10 @@
             // 
             // home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(39)))), ((int)(((byte)(41)))));
-            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.ClientSize = new System.Drawing.Size(997, 577);
             this.Controls.Add(this.close_app_button);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -135,6 +136,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.authors);
             this.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

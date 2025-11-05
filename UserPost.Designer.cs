@@ -95,8 +95,8 @@
             this.Controls.Add(this.l_author);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "UserPost";
-            this.Padding = new System.Windows.Forms.Padding(15, 15, 15, 15);
-            this.Size = new System.Drawing.Size(148, 158);
+            this.Padding = new System.Windows.Forms.Padding(15);
+            this.Size = new System.Drawing.Size(358, 158);
             this.Load += new System.EventHandler(this.UserPost_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

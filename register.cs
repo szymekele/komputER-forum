@@ -18,6 +18,8 @@ namespace komputerforum
         public register()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
         }
 
         private void l_username_TextChanged(object sender, EventArgs e)

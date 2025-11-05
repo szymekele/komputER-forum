@@ -19,6 +19,8 @@ namespace komputerforum
         public login()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

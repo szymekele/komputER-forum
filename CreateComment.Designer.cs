@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateComment));
             this.comment_textBox = new System.Windows.Forms.RichTextBox();
             this.publish_button = new System.Windows.Forms.Button();
             this.cancel_button = new System.Windows.Forms.Button();
@@ -69,6 +70,7 @@
             this.Controls.Add(this.cancel_button);
             this.Controls.Add(this.publish_button);
             this.Controls.Add(this.comment_textBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CreateComment";
             this.Text = "CreateComment";
             this.ResumeLayout(false);
