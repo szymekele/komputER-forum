@@ -48,7 +48,7 @@
             this.authors.Location = new System.Drawing.Point(14, 520);
             this.authors.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.authors.Name = "authors";
-            this.authors.Size = new System.Drawing.Size(441, 50);
+            this.authors.Size = new System.Drawing.Size(283, 32);
             this.authors.TabIndex = 0;
             this.authors.Text = "komputerforum@gmail.com\r\nAutorzy: Szymon Elendt, Wiktor Rogowski\r\n";
             // 
@@ -59,7 +59,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(315, 90);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(559, 67);
+            this.label1.Size = new System.Drawing.Size(369, 45);
             this.label1.TabIndex = 2;
             this.label1.Text = "komputER forum";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -71,7 +71,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(210)))), ((int)(((byte)(151)))));
             this.label2.Location = new System.Drawing.Point(244, 148);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(767, 49);
+            this.label2.Size = new System.Drawing.Size(501, 32);
             this.label2.TabIndex = 3;
             this.label2.Text = "forum technologiczno-komputerowe";
             // 
@@ -82,7 +82,7 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(97)))), ((int)(((byte)(97)))));
             this.label3.Location = new System.Drawing.Point(244, 220);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(284, 49);
+            this.label3.Size = new System.Drawing.Size(184, 32);
             this.label3.TabIndex = 4;
             this.label3.Text = "LOGOWANIE";
             // 
@@ -93,7 +93,7 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(210)))), ((int)(((byte)(151)))));
             this.label4.Location = new System.Drawing.Point(246, 268);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(314, 35);
+            this.label4.Size = new System.Drawing.Size(207, 23);
             this.label4.TabIndex = 5;
             this.label4.Text = "Nazwa użytkownika:";
             // 
@@ -104,7 +104,7 @@
             this.l_username.ForeColor = System.Drawing.Color.White;
             this.l_username.Location = new System.Drawing.Point(250, 294);
             this.l_username.Name = "l_username";
-            this.l_username.Size = new System.Drawing.Size(495, 37);
+            this.l_username.Size = new System.Drawing.Size(495, 27);
             this.l_username.TabIndex = 6;
             this.l_username.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -115,7 +115,7 @@
             this.l_password.ForeColor = System.Drawing.Color.White;
             this.l_password.Location = new System.Drawing.Point(250, 359);
             this.l_password.Name = "l_password";
-            this.l_password.Size = new System.Drawing.Size(495, 37);
+            this.l_password.Size = new System.Drawing.Size(495, 27);
             this.l_password.TabIndex = 8;
             this.l_password.TextChanged += new System.EventHandler(this.l_password_TextChanged);
             // 
@@ -126,7 +126,7 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(210)))), ((int)(((byte)(151)))));
             this.label5.Location = new System.Drawing.Point(246, 333);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(109, 35);
+            this.label5.Size = new System.Drawing.Size(72, 23);
             this.label5.TabIndex = 7;
             this.label5.Text = "Hasło:";
             // 
@@ -158,7 +158,7 @@
             // 
             // login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(39)))), ((int)(((byte)(41)))));
             this.ClientSize = new System.Drawing.Size(984, 561);
@@ -178,6 +178,7 @@
             this.Name = "login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Logowanie - komputER forum";
+            this.Load += new System.EventHandler(this.login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -48,7 +48,7 @@
             this.logged_in.ForeColor = System.Drawing.Color.White;
             this.logged_in.Location = new System.Drawing.Point(68, 24);
             this.logged_in.Name = "logged_in";
-            this.logged_in.Size = new System.Drawing.Size(290, 35);
+            this.logged_in.Size = new System.Drawing.Size(191, 23);
             this.logged_in.TabIndex = 0;
             this.logged_in.Text = "komputER forum";
             // 
@@ -82,11 +82,11 @@
             // 
             this.postsPanel.AutoScroll = true;
             this.postsPanel.BackColor = System.Drawing.Color.Transparent;
-            this.postsPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.postsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.postsPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.postsPanel.Location = new System.Drawing.Point(12, 240);
             this.postsPanel.Name = "postsPanel";
-            this.postsPanel.Padding = new System.Windows.Forms.Padding(8);
+            this.postsPanel.Padding = new System.Windows.Forms.Padding(20);
             this.postsPanel.Size = new System.Drawing.Size(877, 632);
             this.postsPanel.TabIndex = 4;
             this.postsPanel.WrapContents = false;
@@ -100,7 +100,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
             this.label1.Location = new System.Drawing.Point(12, 75);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(170, 29);
+            this.label1.Size = new System.Drawing.Size(115, 18);
             this.label1.TabIndex = 5;
             this.label1.Text = "Zalogowano:";
             // 
@@ -111,17 +111,18 @@
             this.l_users_name.ForeColor = System.Drawing.SystemColors.Control;
             this.l_users_name.Location = new System.Drawing.Point(188, 75);
             this.l_users_name.Name = "l_users_name";
-            this.l_users_name.Size = new System.Drawing.Size(95, 29);
+            this.l_users_name.Size = new System.Drawing.Size(60, 18);
             this.l_users_name.TabIndex = 6;
             this.l_users_name.Text = "label2";
             this.l_users_name.Click += new System.EventHandler(this.l_users_name_Click);
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::komputerforum.Properties.Resources.logo;
-            this.pictureBox2.Location = new System.Drawing.Point(755, 169);
+            this.pictureBox2.Image = global::komputerforum.Properties.Resources.reload;
+            this.pictureBox2.Location = new System.Drawing.Point(853, 199);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(134, 65);
+            this.pictureBox2.Size = new System.Drawing.Size(36, 35);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
@@ -138,7 +139,7 @@
             // 
             // main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(39)))), ((int)(((byte)(41)))));
             this.ClientSize = new System.Drawing.Size(901, 877);
@@ -156,6 +157,7 @@
             this.Name = "main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "komputER forum";
+            this.Load += new System.EventHandler(this.main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

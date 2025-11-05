@@ -48,8 +48,6 @@ namespace komputerforum
             }
         }
 
-
-
         private void cancel_button_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -101,5 +99,9 @@ namespace komputerforum
             this.Close();
         }
 
+        private void CreateComment_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

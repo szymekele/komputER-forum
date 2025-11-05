@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace komputerforum
@@ -36,6 +29,11 @@ namespace komputerforum
         private void close_app_button_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void home_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
