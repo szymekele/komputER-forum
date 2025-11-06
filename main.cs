@@ -268,38 +268,58 @@ namespace komputerforum
 
         private void EnsureDatabaseSchema()
         {
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["komputerforum.Properties.Settings.kforumDBConnectionString"].ConnectionString))
+            string connString = ConfigurationManager.ConnectionStrings["komputerforum.Properties.Settings.kforumDBConnectionString"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(connString))
             {
                 conn.Open();
 
                 string sql = @"
+-- ============================
+--  TABLE: comments
+-- ============================
 IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='comments' AND xtype='U')
 BEGIN
     CREATE TABLE comments (
         Id INT IDENTITY(1,1) PRIMARY KEY,
         PostId INT NOT NULL,
         UserId INT NOT NULL,
-        Content NVARCHAR(MAX),
-        CreatedAt DATETIME DEFAULT GETDATE()
-    )
+        Content NVARCHAR(MAX) NOT NULL,
+        CreatedAt DATETIME NOT NULL DEFAULT GETDATE(),
+        CONSTRAINT FK_comments_posts FOREIGN KEY (PostId) REFERENCES posts(Id) ON DELETE CASCADE,
+        CONSTRAINT FK_comments_users FOREIGN KEY (UserId) REFERENCES users(Id) ON DELETE CASCADE
+    );
 END
 
-IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='likes' AND xtype='U')
+
+-- ============================
+--  TABLE: posts_archive
+-- ============================
+IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='posts_archive' AND xtype='U')
 BEGIN
-    CREATE TABLE likes (
+    CREATE TABLE posts_archive (
         Id INT IDENTITY(1,1) PRIMARY KEY,
-        PostId INT NOT NULL,
-        UserId INT NOT NULL
-    )
+        OriginalPostId INT NOT NULL,
+        UserId INT NOT NULL,
+        Title NVARCHAR(255) NOT NULL,
+        Content NVARCHAR(MAX) NOT NULL,
+        CreatedAt DATETIME NOT NULL
+    );
 END
 
-IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='post_likes' AND xtype='U')
+
+-- ============================
+--  TABLE: comments_archive
+-- ============================
+IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='comments_archive' AND xtype='U')
 BEGIN
-    CREATE TABLE post_likes (
+    CREATE TABLE comments_archive (
         Id INT IDENTITY(1,1) PRIMARY KEY,
         PostId INT NOT NULL,
-        UserId INT NOT NULL
-    )
+        UserId INT NOT NULL,
+        Content NVARCHAR(MAX) NOT NULL,
+        CreatedAt DATETIME NOT NULL
+    );
 END
 ";
 
@@ -307,6 +327,7 @@ END
                 cmd.ExecuteNonQuery();
             }
         }
+
 
 
         private void postsPanel_Paint(object sender, PaintEventArgs e)
