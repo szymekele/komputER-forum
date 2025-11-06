@@ -22,6 +22,7 @@ namespace komputerforum
         {
             _currentUserId = userId;
             l_users_name.Text = GetUsernameById(_currentUserId);
+            EnsureDatabaseSchema();
             LoadPosts();
         }
 
@@ -264,6 +265,49 @@ namespace komputerforum
 
             return username;
         }
+
+        private void EnsureDatabaseSchema()
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["komputerforum.Properties.Settings.kforumDBConnectionString"].ConnectionString))
+            {
+                conn.Open();
+
+                string sql = @"
+IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='comments' AND xtype='U')
+BEGIN
+    CREATE TABLE comments (
+        Id INT IDENTITY(1,1) PRIMARY KEY,
+        PostId INT NOT NULL,
+        UserId INT NOT NULL,
+        Content NVARCHAR(MAX),
+        CreatedAt DATETIME DEFAULT GETDATE()
+    )
+END
+
+IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='likes' AND xtype='U')
+BEGIN
+    CREATE TABLE likes (
+        Id INT IDENTITY(1,1) PRIMARY KEY,
+        PostId INT NOT NULL,
+        UserId INT NOT NULL
+    )
+END
+
+IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='post_likes' AND xtype='U')
+BEGIN
+    CREATE TABLE post_likes (
+        Id INT IDENTITY(1,1) PRIMARY KEY,
+        PostId INT NOT NULL,
+        UserId INT NOT NULL
+    )
+END
+";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
 
         private void postsPanel_Paint(object sender, PaintEventArgs e)
         {
