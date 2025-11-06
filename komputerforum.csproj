@@ -379,7 +379,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>kforumDB.mdf</DependentUpon>
     </Content>
-    <Content Include="Resources\reload.png" />
+    <None Include="Resources\reload.png" />
     <None Include="Resources\logo.png" />
   </ItemGroup>
   <ItemGroup>

@@ -118,7 +118,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::komputerforum.Properties.Resources.reload;
+            //this.pictureBox2.Image = global::komputerforum.Properties.Resources.reload;
             this.pictureBox2.Location = new System.Drawing.Point(853, 199);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(36, 35);
